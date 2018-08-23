@@ -38,5 +38,20 @@ class ViewController: UIViewController {
         totalCostLbl.text = String(runningCost)
     
     }
-}
+
+    @IBAction func AppleOfferUsed(_ sender: Any) {
+
+
+        runningCost += 2*apple/2
+        totalCostLbl.text = String(runningCost)
+    }
+    
+    
+    @IBAction func orangeOfferUsed(_ sender: Any) {
+        runningCost += 3*orange - orange
+        totalCostLbl.text = String(runningCost)
+    }
+
+    }
+
 
