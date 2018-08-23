@@ -14,44 +14,63 @@ class ViewController: UIViewController {
     let orange:Double = 0.25
 
     var runningCost:Double = 0
+    var shoppingListItems:String = ""
+    
+    var oranges:String = "orange, "
+    var apples:String = "apple, "
 
-
+    @IBOutlet weak var myShopping: UILabel!
     @IBOutlet weak var totalCostLbl: UILabel!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 
     @IBAction func buyAppleBtnPressed(_ sender: Any) {
 
         runningCost += apple
         totalCostLbl.text = String(runningCost)
+        shoppingListItems += apples
+        myShopping.text = String(shoppingListItems)
     }
     
     @IBAction func buyOrangeBtnPressed(_ sender: Any) {
         runningCost += orange
         totalCostLbl.text = String(runningCost)
-    
+        shoppingListItems += oranges
+        myShopping.text = String(shoppingListItems)
+
     }
 
     @IBAction func AppleOfferUsed(_ sender: Any) {
 
-
         runningCost += 2*apple/2
         totalCostLbl.text = String(runningCost)
+        shoppingListItems += apples + apples
+        myShopping.text = String(shoppingListItems)
     }
     
     
     @IBAction func orangeOfferUsed(_ sender: Any) {
         runningCost += 3*orange - orange
         totalCostLbl.text = String(runningCost)
+        shoppingListItems += oranges + oranges + oranges
+        myShopping.text = String(shoppingListItems)
     }
 
+    @IBAction func resetShopping(_ sender: Any) {
+
+          runningCost = 0
+         totalCostLbl.text = "0"
+        myShopping.text = "My Shopping:"
+        shoppingListItems = ""
     }
+
+
+}
 
 
